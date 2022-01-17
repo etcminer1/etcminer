@@ -1,8 +1,8 @@
 # etcminer
 
-> Ethereum classical(ETC) miner with OpenCL, CUDA and stratum support
+Ethereum classical(ETC) miner with OpenCL, CUDA and stratum support
 
-The etcminer is an ETC GPU mining worker. It originates from ethminer project.
+The etcminer is an ETC GPU miner, it originates from ethminer project.
 
 ### Features
 
