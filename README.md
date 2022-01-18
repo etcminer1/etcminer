@@ -6,7 +6,7 @@ The etcminer is an ETC GPU miner, it originates from ethminer project.
 
 ### Donation
 ETC address:	
-<font size=4 color="#dd0000">0x23413a007da796875efa2f8c98fcc011c247f023</font>
+`0x23413a007da796875efa2f8c98fcc011c247f023`
 
 
 ### Features
