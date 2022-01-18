@@ -1,125 +1,84 @@
 # etcminer
 
-Ethereum classical(ETC) miner with OpenCL, CUDA and stratum support
+Ethereum classic(ETC) miner with OpenCL, CUDA and stratum support
 
 The etcminer is an ETC GPU miner, it originates from ethminer project.
 
+### Donation
+ETC address:	
+<font size=4 color="#dd0000">0x23413a007da796875efa2f8c98fcc011c247f023</font>
+
+
 ### Features
 
-- OpenCL mining
-- Nvidia CUDA mining
-- realistic benchmarking against arbitrary epoch/DAG/blocknumber
-- on-GPU DAG generation (no more DAG files on disk)
+- OpenCL and Nvidia CUDA support
 - stratum mining without proxy
-- OpenCL devices picking
 - farm failover (getwork + stratum)
-
 
 ## Table of Contents
 
 - [Install](#install)
 - [Usage](#usage)
-- [Build](#build)
-  - [Continuous Integration and development builds](#continuous-integration-and-development-builds)
-  - [Building from source](#building-from-source)
-  - [CMake configuration options](#cmake-configuration-options)
+- [Build from source](#build-from-source)
 - [Maintainer](#maintainer)
-- [Contribute](#contribute)
-- [F.A.Q.](#faq)
+- [Donation](#Donation)
 
 
 ## Install
 
-[![Releases](https://img.shields.io/github/downloads/ethereum-mining/ethminer/total.svg)][Releases]
-
-Download an archive for your operating system and unpack the content to a place
-accessible from command line. The etcminer is ready to go.
+Download an archive£¬ unpack it to a place accessible from command line. The etcminer is ready to go.
 
 | Builds | Release | Date |
 | ------ | ------- | ---- |
-| Stable  | [![GitHub release](https://img.shields.io/github/release/ethereum-mining/ethminer.svg)](https://github.com/ethereum-mining/ethminer/releases) | [![GitHub Release Date](https://img.shields.io/github/release-date/ethereum-mining/ethminer.svg)](https://github.com/ethereum-mining/ethminer/releases) |
-
+| Stable  | [Release](https://github.com/shenwude/etcminer/releases) | [Date](https://github.com/shenwude/etcminer/releases) |
 
 ## Usage
 
-The **etcminer** is a command line program. Just launch it either
-from a Windows cmd or Linux console, for hlep, please run
-etcminer --help
+Just launch **etcminer** either from a Windows cmd or Linux console. For help, please run `etcminer --help`
 
+## Build from source
 
-## Build
+This project uses `CMake` and `Hunter` package manager.
 
+### For Windows:
+VS 2019 is recommended, it should work well with `CMake` and `Hunter`.
+1. Open etcminer project folder
+2. Generate `CMake` cache
+3. Generate all
+4. (Option) install etcminer
 
-### Building from source
+### For Linux:
+1. Create a build directory by:   
+   `mkdir build; cd build`
 
-This project uses [CMake] and [Hunter] package manager.
+2. Configure the project with `CMake`. Check out additional
+   [configuration options](#cmake-configuration-options).   
+   e.g., `cmake .. -DETHASHCUDA=ON -DETHASHCL=ON`
 
-In Windows, VS 2019 is recommended, it should work well with CMake and Hunter.
-
-For Linux:
-1. Create a build directory.
-
-   ```sh
-   mkdir build; cd build
-   ```
-
-2. Configure the project with CMake. Check out additional
-   [configuration options](#cmake-configuration-options).
-
-   ```sh
-   cmake ..
-   ```
-
-
-3. Build the project using [CMake Build Tool Mode]. This is a portable variant
-   of `make`.
-
-   ```sh
-   cmake --build .
-   ```
-4. _(Optional, Linux only)_ Install the built executable.
-
-   ```sh
-   sudo make install
-   ```
+3. Install it:	
+   `make DESTDIR=/home/xxx install`
 
 #### OpenCL support on Linux
 
 If you're planning to use [OpenCL on Linux](https://github.com/ruslo/hunter/wiki/pkg.opencl#pitfalls)
-you have to install OpenGL libraries. E.g. on Ubuntu run:
-
-```sh
-sudo apt-get install mesa-common-dev
-```
+you have to install OpenGL libraries.	
+E.g. on Ubuntu run:	
+`sudo apt-get install mesa-common-dev`	
+(If it fails because of dependancy, just remove relevant packages and then try)
 
 ### CMake configuration options
 
-Pass these options to CMake configuration command, e.g.
-
-```sh
+CMake configuration command, e.g.
 cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF
-```
 
 - `-DETHASHCL=ON` - enable OpenCL mining, `ON` by default,
 - `-DETHASHCUDA=ON` - enable CUDA mining, `OFF` by default.
 
-
 ## Maintainer
 
-- Shen [@shenwude]
-
-
-## Contribute
-
-
+- [@shenwude](https://github.com/shenwude)
 
 
 ## License
 
 Licensed under the [GNU General Public License, Version 3](LICENSE).
-
-
-## F.A.Q
-
-8. Can I CPU Mine?
-   Not supported by etcminer.
