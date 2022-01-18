@@ -5,7 +5,7 @@ Ethereum classic(ETC) miner with OpenCL, CUDA and stratum support
 The etcminer is an ETC GPU miner, it originates from ethminer project.
 
 ### Donation
-ETC address:	
+ETC address:
 `0x23413a007da796875efa2f8c98fcc011c247f023`
 
 
@@ -36,9 +36,12 @@ Download an archive£¬ unpack it to a place accessible from command line. The etc
 
 Just launch **etcminer** either from a Windows cmd or Linux console. For help, please run `etcminer --help`
 
+See [pool example](docs/POOL_EXAMPLES_ETC.md) for pool usage.
+
 ## Build from source
 
 This project uses `CMake` and `Hunter` package manager.
+See [docs/BUILD.md](docs/BUILD.md) for details.
 
 ### For Windows:
 VS 2019 is recommended, it should work well with `CMake` and `Hunter`.
