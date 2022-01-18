@@ -109,7 +109,7 @@ message("")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(EthCompilerSettings)
 
-cable_add_buildinfo_library(PREFIX ethminer)
+cable_add_buildinfo_library(PREFIX etcminer)
 
 add_subdirectory(libdevcore)
 add_subdirectory(libethash)
@@ -127,7 +127,7 @@ if (APICORE)
 	add_subdirectory(libapicore)
 endif()
 
-add_subdirectory(ethminer)
+add_subdirectory(etcminer)
 
 
 if(WIN32)

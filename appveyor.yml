@@ -30,15 +30,15 @@ after_build:
   ps: |
     cmake --build build --config $env:configuration --target package
     if ($env:configuration -ne "Release") {
-      Get-Item build/ethminer-*-Windows.* | Rename-Item -NewName { $_.name -Replace 'ethminer','ethminer-dbg' }
+      Get-Item build/etcminer-*-Windows.* | Rename-Item -NewName { $_.name -Replace 'etcminer','etcminer-dbg' }
     }
     if (-not $env:appveyor_pull_request_number) {
       cmake --build build --target hunter_upload_cache
     }
 
 artifacts:
-  - path: build/ethminer-*.zip
-    name: ethminer
+  - path: build/etcminer-*.zip
+    name: etcminer
 
 before_deploy:
   # Read variables dumped by CMake configuration.
@@ -47,12 +47,12 @@ deploy:
   # Create GitHub release, also set the release name and description.
   provider: GitHub
   tag: $(appveyor_repo_tag_name)
-  release: ethminer $(ethminer_version)
+  release: etcminer $(etcminer_version)
   description: ''
   force_update: true  # Force update in case Travis CI created the release before.
-  prerelease: $(ethminer_version_is_prerelease)
+  prerelease: $(etcminer_version_is_prerelease)
   draft: false
-  artifact: ethminer
+  artifact: etcminer
   auth_token:
     secure: uDRcvbW+9GIyKlZ9guJfWOQ6jg0An6eULg6mEkYgdKn/GVNpYSKvO5oHxP0U8a+e
   on:

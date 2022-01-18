@@ -18,5 +18,5 @@ jobs:
             - /root/.hunter/_Base/Cache
       - run: cmake --build build -- -j4
       - store_artifacts:
-          path: build/ethminer/ethminer
-          destination: ethminer
+          path: build/etcminer/etcminer
+          destination: etcminer

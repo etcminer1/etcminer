@@ -1,6 +1,6 @@
 #include "ApiServer.h"
 
-#include <ethminer-buildinfo.h>
+#include <etcminer-buildinfo.h>
 
 ApiServer::ApiServer(AbstractServerConnector *conn, serverVersion_t type, Farm &farm, bool &readonly) : AbstractServer(*conn, type), m_farm(farm)
 {
@@ -52,15 +52,15 @@ void ApiServer::getMinerStat1(const Json::Value& request, Json::Value& response)
 		gpuIndex++;
 	}
 
-	response[0] = ethminer_get_buildinfo()->project_version;  //miner version.
+	response[0] = etcminer_get_buildinfo()->project_version;  //miner version.
 	response[1] = toString(runningTime.count()); // running time, in minutes.
-	response[2] = totalMhEth.str();              // total ETH hashrate in MH/s, number of ETH shares, number of ETH rejected shares.
-	response[3] = detailedMhEth.str();           // detailed ETH hashrate for all GPUs.
+	response[2] = totalMhEth.str();              // total ETC hashrate in MH/s, number of ETC shares, number of ETC rejected shares.
+	response[3] = detailedMhEth.str();           // detailed ETC hashrate for all GPUs.
 	response[4] = totalMhDcr.str();              // total DCR hashrate in MH/s, number of DCR shares, number of DCR rejected shares.
 	response[5] = detailedMhDcr.str();           // detailed DCR hashrate for all GPUs.
 	response[6] = tempAndFans.str();             // Temperature and Fan speed(%) pairs for all GPUs.
 	response[7] = poolAddresses.str();           // current mining pool. For dual mode, there will be two pools here.
-	response[8] = invalidStats.str();            // number of ETH invalid shares, number of ETH pool switches, number of DCR invalid shares, number of DCR pool switches.
+	response[8] = invalidStats.str();            // number of ETC invalid shares, number of ETC pool switches, number of DCR invalid shares, number of DCR pool switches.
 }
 
 void ApiServer::getMinerStatHR(const Json::Value& request, Json::Value& response)
@@ -82,7 +82,7 @@ void ApiServer::getMinerStatHR(const Json::Value& request, Json::Value& response
 	Json::Value powers;
 	ostringstream poolAddresses;
 	
-	version << ethminer_get_buildinfo()->project_version;
+	version << etcminer_get_buildinfo()->project_version;
 	runtime << toString(runningTime.count());
     poolAddresses << m_farm.get_pool_addresses(); 
 	
@@ -105,7 +105,7 @@ void ApiServer::getMinerStatHR(const Json::Value& request, Json::Value& response
 
 	response["version"] = version.str();		// miner version.
 	response["runtime"] = runtime.str();		// running time, in minutes.
-	// total ETH hashrate in MH/s, number of ETH shares, number of ETH rejected shares.
+	// total ETC hashrate in MH/s, number of ETC shares, number of ETC rejected shares.
 	response["ethhashrate"] = (p.rate());
 	response["ethhashrates"] = detailedMhEth;  
 	response["ethshares"] 	= s.getAccepts(); 

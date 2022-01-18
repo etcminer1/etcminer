@@ -66,7 +66,7 @@ private:
 	void onSendSocketDataCompleted(const boost::system::error_code& ec);
 
 
-	string m_worker; // eth-proxy only; No ! It's for all !!!
+	string m_worker; // eth-proxy/etc-proxy only? No ! It's for all !!!
 
 	std::atomic<bool> m_subscribed = { false };
 	std::atomic<bool> m_authorized = { false };

@@ -1,7 +1,7 @@
 #include "EthStratumClient.h"
 #include <libdevcore/Log.h>
 #include <libethash/endian.h>
-#include <ethminer-buildinfo.h>
+#include <etcminer-buildinfo.h>
 
 #ifdef _WIN32
 #include <wincrypt.h>
@@ -399,7 +399,7 @@ void EthStratumClient::connect_handler(const boost::system::error_code& ec, tcp:
 
 			case EthStratumClient::ETHEREUMSTRATUM:
 
-				jReq["params"].append("ethminer " + std::string(ethminer_get_buildinfo()->project_version));
+				jReq["params"].append("etcminer " + std::string(etcminer_get_buildinfo()->project_version));
 				jReq["params"].append("EthereumStratum/1.0.0");
 
 				break;
@@ -492,7 +492,7 @@ void EthStratumClient::processReponse(Json::Value& responseObject)
 			(responseObject.isMember("method") && !responseObject.isMember("params"))
 			)  {
 			cwarn << "Pool sent an invalid jsonrpc (v1) response ...";
-			cwarn << "Do not blame ethminer for this. Ask pool devs to honor http://www.jsonrpc.org/specification_v1 ";
+			cwarn << "Do not blame etcminer for this. Ask pool devs to honor http://www.jsonrpc.org/specification_v1 ";
 			cwarn << "Disconnecting ...";
 			disconnect();
 			return;
@@ -572,7 +572,7 @@ void EthStratumClient::processReponse(Json::Value& responseObject)
 			(responseObject.isMember("method") && (!responseObject.isMember("params") || responseObject.get("params", Json::Value::null).empty()))
 			) {
 			cwarn << "Pool sent an invalid jsonrpc (v2) response ...";
-			cwarn << "Do not blame ethminer for this. Ask pool devs to honor http://www.jsonrpc.org/specification ";
+			cwarn << "Do not blame etcminer for this. Ask pool devs to honor http://www.jsonrpc.org/specification ";
 			cwarn << "Disconnecting ...";
 			disconnect();
 			return;
@@ -671,7 +671,7 @@ void EthStratumClient::processReponse(Json::Value& responseObject)
 				}
 				else {
 
-					cnote << "Logged in to eth-proxy server";
+					cnote << "Logged in to eth-proxy/etc-proxy server";
 					m_authorized.store(true, std::memory_order_relaxed);
 
 					jReq["id"] = unsigned(5);
@@ -950,7 +950,7 @@ void EthStratumClient::processReponse(Json::Value& responseObject)
 		{
 
 			jReq["id"] = toString(_id);
-			jReq["result"] = ethminer_get_buildinfo()->project_version;
+			jReq["result"] = etcminer_get_buildinfo()->project_version;
 
 			if (_rpcVer == 1) {
 				jReq["error"] = Json::Value::null;
