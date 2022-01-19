@@ -727,13 +727,6 @@ void EthStratumClient::processReponse(Json::Value& responseObject)
 
 		case 2:
 
-			// This is the reponse to mining.extranonce.subscribe
-			// according to this 
-			// https://github.com/nicehash/Specifications/blob/master/NiceHash_extranonce_subscribe_extension.txt
-			// In all cases, client does not perform any logic when receiving back these replies.
-			// With mining.extranonce.subscribe subscription, client should handle extranonce1
-			// changes correctly
-
 			// Nothing to do here.
 
 			break;

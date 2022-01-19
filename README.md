@@ -36,12 +36,13 @@ Download an archive£¬ unpack it to a place accessible from command line. The etc
 
 - Just launch **etcminer** either from a Windows cmd or Linux console. For help, please run `etcminer --help`
 
+- Please try different schemes if you are not sure which scheme is supported by the pool.	
+	And see [pool example](docs/POOL_EXAMPLES_ETC.md) for pool usage.
+
 - In windows, if you cannot find your AMD cards:
 	1. Go to `C:\Windows\System32` and search for `amdocl64.dll`, and then get the .dll file's path, just call it `theDllPath`
 	2. Open regedit, and go to `HKEY_LOCAL_MACHINE\SOFTWARE\Khronos\OpenCL\Vendors`
 	3. Create a new DWORD with the name of `theDllPath\amdocl64.dll`, and leave the key's value as 0
-
-- See [pool example](docs/POOL_EXAMPLES_ETC.md) for pool usage.
 
 ## Build from source
 

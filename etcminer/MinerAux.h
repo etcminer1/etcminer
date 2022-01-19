@@ -762,16 +762,12 @@ public:
 			<< "        0: Force TLS1.2 (default)" << endl
 			<< "        1: Allow any TLS version" << endl
 			<< "        2: Allow self-signed or invalid certs and any TLS version" << endl
-			<< "    -SP, --stratum-protocol <n> (deprecated) Choose which stratum protocol to use:" << endl
-			<< "        0: official stratum spec: ethpool, ethermine, coinotron, mph, nanopool (default)" << endl
-			<< "        1: eth-proxy compatible: dwarfpool, f2pool, nanopool (required for hashrate reporting to work with nanopool)" << endl
-			<< "        2: EthereumStratum/1.0.0: nicehash" << endl
 			<< "    -RH, --report-hashrate Report current hashrate to pool (please only enable on pools supporting this)" << endl
 			<< "    -HWMON [<n>], Displays gpu temp, fan percent and power usage. Note: In linux, the program uses sysfs, which may require running with root privileges." << endl
 			<< "        0: Displays only temp and fan percent (default)" << endl
 			<< "        1: Also displays power usage" << endl
 			<< "    --exit Stops the miner whenever an error is encountered" << endl
-			<< "    -SE, --stratum-email <s> Email address used in eth-proxy (optional)" << endl
+			<< "    -SE, --stratum-email <s> Email address used in eth-proxy/etc-proxy (optional)" << endl
 			<< "    --farm-recheck <n>  Leave n ms between checks for changed work (default: 500). When using stratum, use a high value (i.e. 2000) to get more stable hashrate output" << endl
 			<< "    -P URL Specify a pool URL. Can be used multiple times. The 1st for for the primary pool, and the 2nd for the failover pool." << endl
 			<< "        URL takes the form: scheme://user[:password]@hostname:port[/emailaddress]." << endl
@@ -779,9 +775,10 @@ public:
 			<< "          " << URI::KnownSchemes(ProtocolFamily::GETWORK) << endl
 			<< "        for stratum use one of the following schemes: "<< endl
 			<< "          " << URI::KnownSchemes(ProtocolFamily::STRATUM) << endl
-			<< "        Example 1 : stratum+ssl://0x012345678901234567890234567890123.miner1@ethermine.org:5555" << endl
-			<< "        Example 2 : stratum1+tcp://0x012345678901234567890234567890123.miner1@nanopool.org:9999/john.doe@gmail.com" << endl
-			<< "        Example 3 : stratum1+tcp://0x012345678901234567890234567890123@nanopool.org:9999/miner1/john.doe@gmail.com" << endl
+			<< "        Example 1 : stratum+tcp://0x23413a007da796875efa2f8c98fcc011c247f023.miner1@ethermine.org:5555" << endl
+			<< "        Example 2 : stratum+tcp://0x23413a007da796875efa2f8c98fcc011c247f023.miner1@ethash.poolbinance.com:1800" << endl
+			<< "        Example 3 : stratum1+tcp://0x23413a007da796875efa2f8c98fcc011c247f023.miner1@nanopool.org:9999/xxx.xxxx@gmail.com" << endl
+			<< "        Example 4 : stratum2+tcp://0x23413a007da796875efa2f8c98fcc011c247f023@nanopool.org:9999/miner1/xxx.xxx@gmail.com" << endl
 			<< endl
 			<< "Benchmarking mode:" << endl
 			<< "    -M [<n>],--benchmark [<n>] Benchmark for mining and exit; Optionally specify block number to benchmark against specific DAG." << endl
@@ -793,7 +790,7 @@ public:
 			<< "Mining configuration:" << endl
 			<< "    -G,--opencl  When mining use the GPU via OpenCL." << endl
 			<< "    -U,--cuda  When mining use the GPU via CUDA." << endl
-			<< "    -X,--cuda-opencl Use OpenCL + CUDA in a system with mixed AMD/Nvidia cards. May require setting --opencl-platform 1 or 2. Use --list-devices option to check which platform is your AMD. " << endl
+			<< "    -X,--cuda-opencl Use OpenCL + CUDA with mixed AMD/Nvidia cards. May require setting --opencl-platform 1 or 2. Use --list-devices option to check which platform is your AMD. " << endl
 			<< "    --opencl-platform <n>  When mining using -G/--opencl use OpenCL platform n (default: 0)." << endl
 			<< "    --opencl-device <n>  When mining using -G/--opencl use OpenCL device n (default: 0)." << endl
 			<< "    --opencl-devices <0 1 ..n> Select which OpenCL devices to mine on. Default is to use all" << endl
