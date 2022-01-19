@@ -26,7 +26,7 @@ ETC address:
 
 ## Install
 
-Download an archive£¬ unpack it to a place accessible from command line. The etcminer is ready to go.
+Download an archiveÂ£Â¬ unpack it to a place accessible from command line. The etcminer is ready to go.
 
 | Builds | Release | Date |
 | ------ | ------- | ---- |
@@ -85,7 +85,7 @@ cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF
 
 ## Maintainer
 
-- [@shenwude](https://github.com/shenwude)
+- [@etcminer1](https://github.com/etcminer1)
 
 
 ## License
